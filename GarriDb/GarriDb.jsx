@@ -1,6 +1,6 @@
 import ImageOne from '../src/assets/images/garri-9.jpg';
 import ImageTwo from '../src/assets/images/garri-12.jpg';
-import ImageThree from '../src/assets/images/garri-2.jpg';
+import ImageThree from '../src/assets/images/garri-22.jpg';
 import ImageFour from '../src/assets/images/garri-21.jpg';
 import ImageFive from '../src/assets/images/garri-7.jpg';
 import ImageSix from '../src/assets/images/garri-1.jpg';
@@ -36,7 +36,7 @@ const GarriDb = [
     },
     {
         id: 3,
-        name: 'Garri and Epa',
+        name: 'Garri and Fish',
         price: 450,
         rating: 5,
         image: ImageThree
@@ -92,7 +92,7 @@ const GarriDb = [
     },
     {
         id: 11,
-        name: 'Packaged Garri',
+        name: 'Garri parfait',
         price: 450,
         rating: 4.5,
         image: ImageEleven

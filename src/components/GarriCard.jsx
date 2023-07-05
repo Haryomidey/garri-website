@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-const GarriCard = ({ garri, addItemToCart, removeItemFromCart, state, setToastifyVal, addToFavorite, removeFromFavorite, favoritePage}) => {
+const GarriCard = ({ garri, state, addItemToCart, removeItemFromCart, setToastifyVal, addToFavorite, removeFromFavorite, favoritePage}) => {
     const [isFavorite, setIsFavorite] = useState(false);
     const [addedToCart, setAddedToCart] = useState(false);
 
-    state.price = 0;
-    state.quantity = 1;
+    garri.quantity = 1;
 
   return (
     <div className='bg-white w-full mobile:w-[80%] ipad:w-[40%] tablet:w-[30%] h-[350px] laptop:w-[25%] desktop:w-[20%] flex flex-col custom_card_shadow relative rounded-md overflow-hidden' key={garri.id}>
@@ -21,21 +20,17 @@ const GarriCard = ({ garri, addItemToCart, removeItemFromCart, state, setToastif
                 <p>Rating: <span className='font-semibold'>({garri.rating})</span></p>
                 <p>Price: <span className='font-semibold'>₦{garri.price}</span></p>
                 {
-                    addedToCart ? (
-                        <button className='text-center w-full bg-[green] text-white mt-2 rounded py-1' onClick={() => {
+                    state.find((e)=> e.id === garri.id) ? (
+                        <button className={`text-center w-full bg-[green] text-white mt-2 rounded py-1`} onClick={() => {
                             removeItemFromCart(garri);
-                            setAddedToCart(false);
                             setToastifyVal(false);
                         }}>Remove from cart</button>
                     ) 
                     :
                     (
-                        <button className='text-center w-full bg-[#f76262] text-white mt-2 rounded py-1' onClick={() => {
-                            setAddedToCart(true);
+                        <button className={`text-center w-full bg-[#f76262] text-white mt-2 rounded py-1`} onClick={() => {
                             addItemToCart(garri);
                             setToastifyVal(true);
-                            state.price = garri.price
-                            state.quantity = 1
                         }}>Add to cart</button>
                     )
                 }

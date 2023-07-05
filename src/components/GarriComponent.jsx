@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const GarriComponent = () => {
-    const { state, dispatch, faveState, faveDispatch } = useContext(Context);
+    const { state, dispatch, faveDispatch } = useContext(Context);
     const [toastifyVal, setToastifyVal] = useState(false);
     
     const addItemToCart = (item) => {
@@ -41,9 +41,9 @@ const GarriComponent = () => {
             {GarriDb.map((garri) => (
                 <GarriCard
                     garri={garri}
+                    state={state}
                     addItemToCart={addItemToCart}
                     removeItemFromCart={removeItemFromCart}
-                    state={state}
                     setToastifyVal={setToastifyVal}
                     addToFavorite={addToFavorite}
                     removeFromFavorite={removeFromFavorite}

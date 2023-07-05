@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
-    const { state, faveState } = useContext(Context);
+    const { state, dispatch, faveState } = useContext(Context);
     const [menu, setMenu] = useState(false);
     const [cart, setCart] = useState(false);
 
@@ -74,11 +74,11 @@ const Navbar = () => {
             <p className='px-3 text-center mb-5 text-sm font-light'>Nah the page where you fit see the Garri wey you don select be this</p>
             {
                 state.map((item) => (
-                    <div className='w-full px-5 py-6 cart_border'>
+                    <div className='w-full px-5 py-6 cart_border relative'>
                         <img src={item.image} className='w-full' alt="" />
                         <p className='pt-2'>{item.name}</p>
                         <p>Price: <span className='font-semibold'>₦{item.price}</span></p>
-                        
+                        <p className='absolute top-[30px] right-[30px] bg-[#213A5A] w-[25px] h-[25px] rounded-full pb-1 cursor-pointer drop-shadow-lg flex items-center justify-center' onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item })}>x</p>
                     </div>
                 ))
             }

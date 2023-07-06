@@ -10,7 +10,7 @@ import FavoritePage from './pages/FavoritePage';
 function App() {
 
   return (
-    <div className="font-[Quicksand]">
+    <div className="font-[Quicksand] overflow-x-hidden">
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/login' element={<Login />} />

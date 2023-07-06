@@ -73,10 +73,12 @@ const Navbar = () => {
             </div>
         </div>
         <div className={`fixed top-0 transition-all ease duration-300 ${menu ? 'left-0' : 'left-[-100%]'} h-screen w-full bg-[#213A5A]`}>
-            <ul className='text-white w-full h-full flex items-center mt-32 gap-y-10 flex-col text-xl'>
+            <ul className='text-white w-full h-full flex items-center mt-20 gap-y-10 flex-col text-xl'>
                 <li><NavLink to='/'>Home</NavLink></li>
                 <li>About Us</li>
                 <li>Contact Us</li>
+                <Link to='/login'><button className=''>Login</button></Link>
+                <Link to='/sign-up'><button className='px-5 bg-[#213A5A] rounded-full'>Sign up</button></Link>
             </ul>
         </div>
         {/* Cart Div */}

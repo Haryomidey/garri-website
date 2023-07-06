@@ -13,6 +13,9 @@ const CartItem = ({garri, increaseItemInCart, decreaseItemInCart, removeItemFrom
           if(garri.quantity > 1){
             decreaseItemInCart(garri);
           }
+          else {
+            removeItemFromCart(garri);
+          }
         }}>-</button>
         <p className='font-semibold'>{garri.quantity}</p>
         <button className='px-3 py-1 bg-white cart_button_shadow rounded-md font-bold' onClick={() => increaseItemInCart(garri)}>+</button>

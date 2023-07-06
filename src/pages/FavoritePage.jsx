@@ -38,6 +38,7 @@ const FavoritePage = () => {
                     addItemToCart={addItemToCart}
                     removeItemFromCart={removeItemFromCart}
                     state={state}
+                    faveState={faveState}
                     favoritePage = 'Yes'
                 />
             ))}

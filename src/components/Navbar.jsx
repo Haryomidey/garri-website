@@ -37,18 +37,24 @@ const Navbar = () => {
         setCart(true);
     }
 
+    const total = state.reduce((total, item) => {
+        return (total + item.price * item.quantity);
+    }, 0);
+
   return (
-    <header className='fixed top-0 mt-[-1px] left-0 h-[60px] mobile:h-[100px] w-full bg-[#00ABE4] flex items-center justify-between z-50 px-4'>
-        <h1 className='tablet:pl-20 text-white mobile:text-xl'><Link to='/'>Garri Kingdom</Link></h1>
-        <nav className='hidden tablet:block'>
-            <ul className='flex gap-7 pr-20'>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-            </ul>
-        </nav>
+    <header className='fixed top-0 mt-[-1px] left-0 h-[60px] mobile:h-[100px] w-full bg-[#00ABE4] flex items-center justify-between z-50 shadow-lg px-4 tablet:px-20'>
+        <div className='flex items-center justify-between w-[50%]'>
+            <Link to='/'><h1 className=' mobile:text-xl flex flex-col items-center justify-center px-3 py-1 drop-shadow-md bg-white text-[#213A5A] font-bold '><span>Garri</span><span>Kingdom</span></h1></Link>
+            <nav className='hidden tablet:block'>
+                <ul className='flex text-white gap-7 pr-20'>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                </ul>
+            </nav>
+        </div>
         <div className='flex items-center gap-2'>
-            <div className='relative'>
+            <div className='relative flex items-center'>
                 <span className='material-symbols-outlined text-white pt-1'><Link to='/favorite'>favorite</Link></span>
                 <span className='absolute left-[9px] top-[-4px] text-[11px] font-semibold rounded-full px-1 bg-[#f76262] text-white cursor-pointer'>
                     {faveState.length}
@@ -61,6 +67,10 @@ const Navbar = () => {
                 </span>
             </div>
             <span className={`material-symbols-outlined z-10 tablet:hidden cursor-pointer select-none text-white`} onClick={handleMenu}>{menu ? 'close' : 'menu'}</span>
+            <div className='flex items-center ml-4 text-[white] gap-x-4'>
+                <Link to='/login'><button className='px-5 py-2'>Login</button></Link>
+                <Link to='/sign-up'><button className='px-5 py-2 bg-[#213A5A] rounded-full'>Sign up</button></Link>
+            </div>
         </div>
         <div className={`fixed top-0 transition-all ease duration-300 ${menu ? 'left-0' : 'left-[-100%]'} h-screen w-full bg-[#213A5A]`}>
             <ul className='text-white w-full h-full flex items-center mt-32 gap-y-10 flex-col text-xl'>
@@ -91,8 +101,9 @@ const Navbar = () => {
                     </span> */}
                 </div>
             )}
+            {state.length > 0 && <div className='my-5 w-full flex items-center justify-end px-1'>Total: <span className='font-semibold'>₦{total}</span></div>}
             <Link to='/cart'>
-                <button className='mt-7 bg-[#F23129] px-7 py-2'>View Cart Details</button>
+                <button className='mt-2 bg-[#F23129] px-7 py-2'>View Cart Details</button>
             </Link>
         </div>
     </header>

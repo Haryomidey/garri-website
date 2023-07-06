@@ -13,11 +13,8 @@ const ContextProvider = ({ children }) => {
                 else {
                     return [...state, action.payload]
                 }
-            case 'REMOVE_ITEM':
-                const tempstate2 = state.filter(item => item.id !== action.payload.id)
-                return tempstate2;
             case 'INCREASE_ITEM':
-                const tempstate3 = state.map(item => {
+                const tempstate2 = state.map(item => {
                     if (item.id === action.payload.id) {
                         return { ...item, quanity: item.quantity + 1 };
                     }
@@ -25,9 +22,9 @@ const ContextProvider = ({ children }) => {
                         return item;
                     }
                 })
-                return tempstate3;
+                return tempstate2;
             case 'DECREASE_ITEM':
-                const tempstate4 = state.map(item => {
+                const tempstate3 = state.map(item => {
                     if (item.id === action.payload.id) {
                         return { ...item, quanity: item.quantity - 1 };
                     }
@@ -35,6 +32,9 @@ const ContextProvider = ({ children }) => {
                         return item;
                     }
                 });
+                return tempstate3;
+            case 'REMOVE_ITEM':
+                const tempstate4 = state.filter(item => item.id !== action.payload.id)
                 return tempstate4;
             default:
                 return state;
@@ -59,11 +59,13 @@ const ContextProvider = ({ children }) => {
         }
     }
 
-  const [state, dispatch] = useReducer(cartReducer, []);
-  const [faveState, faveDispatch] = useReducer(favReducer, []);
+    const [state, dispatch] = useReducer(cartReducer, []);
+    const [faveState, faveDispatch] = useReducer(favReducer, []);
+
+    const info = { state, dispatch, faveState, faveDispatch };
 
   return (
-    <Context.Provider value={{ state, dispatch, faveState, faveDispatch }}>
+    <Context.Provider value={info}>
       {children}
     </Context.Provider>
   );

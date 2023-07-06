@@ -13,14 +13,18 @@ const CartPage = () => {
     const increaseItemInCart = (item) => {
         dispatch({ type: 'INCREASE_ITEM', payload: item });
     };
+
     const decreaseItemInCart = (item) => {
         dispatch({ type: 'DECREASE_ITEM', payload: item });
     };
+    
     const removeItemFromCart = (item) => {
         dispatch({ type: 'REMOVE_ITEM', payload: item });
     };
 
-    console.log(state)
+    const total = state.reduce((total, item) => {
+        return (total + item.price * item.quantity);
+    }, 0);
 
   return (
     <div>
@@ -44,8 +48,9 @@ const CartPage = () => {
             ))
         }
         </div>
-        <div className=''>
-            
+        <div className='w-full flex flex-col items-end my-5 px-4'>
+            {state.length > 0 && <div className='px-1'>Total: <span className='font-semibold'>₦{total}</span></div>}
+            <button className='text-sm bg-[#213A5A] text-white px-3 py-2 mt-2 rounded'>CHECK OUT</button>
         </div>
         <Footer />
     </div>

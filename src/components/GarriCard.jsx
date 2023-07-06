@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const GarriCard = ({ garri, state, addItemToCart, removeItemFromCart, setToastifyVal, addToFavorite, removeFromFavorite, favoritePage}) => {
-    const [isFavorite, setIsFavorite] = useState(false);
-    const [addedToCart, setAddedToCart] = useState(false);
+const GarriCard = ({ garri, state, faveState, addItemToCart, removeItemFromCart, addToFavorite, removeFromFavorite, favoritePage}) => {
 
     garri.quantity = 1;
 
@@ -23,30 +21,26 @@ const GarriCard = ({ garri, state, addItemToCart, removeItemFromCart, setToastif
                     state.find((e)=> e.id === garri.id) ? (
                         <button className={`text-center w-full bg-[green] text-white mt-2 rounded py-1`} onClick={() => {
                             removeItemFromCart(garri);
-                            setToastifyVal(false);
                         }}>Remove from cart</button>
                     ) 
                     :
                     (
                         <button className={`text-center w-full bg-[#f76262] text-white mt-2 rounded py-1`} onClick={() => {
                             addItemToCart(garri);
-                            setToastifyVal(true);
                         }}>Add to cart</button>
                     )
                 }
             </div>
         </div>
         {
-            isFavorite ? (
+            faveState.find((e)=> e.id === garri.id) ? (
                 <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer ${favoritePage === 'Yes' ? 'hidden' : 'block'} select-none text-[#dd2626] icon_filled`} onClick={() => {
-                    setIsFavorite(false);
                     removeFromFavorite(garri);
                 }}>favorite</span>
             )
             :
             (
                 <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer ${favoritePage === 'Yes' ? 'hidden' : 'block'} select-none text-[#dd2626]`} onClick={() => {
-                    setIsFavorite(true);
                     addToFavorite(garri);
                 }}>favorite</span>
             )

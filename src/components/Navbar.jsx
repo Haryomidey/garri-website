@@ -34,7 +34,7 @@ const Navbar = () => {
     }
 
     const handleCart = () => {
-        setCart(true);
+        setCart(!cart);
     }
 
     const total = state.reduce((total, item) => {
@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <header className='fixed top-0 mt-[-1px] left-0 h-[60px] mobile:h-[100px] w-full bg-[#00ABE4] flex items-center justify-between z-50 shadow-lg px-4 tablet:px-20'>
-        <div className='flex items-center justify-between w-[50%]'>
+        <div className='flex items-center justify-between laptop:w-[50%]'>
             <Link to='/'><h1 className='text-sm mobile:text-xl flex flex-col items-center justify-center px-3 mobile:py-1 drop-shadow-md bg-white text-[#213A5A] font-bold rounded-lg'><span>Garri</span><span>Kingdom</span></h1></Link>
             <nav className='hidden laptop:block'>
                 <ul className='flex text-white gap-7 pr-20'>

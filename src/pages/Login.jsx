@@ -1,20 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import Welcome from '../components/Welcome';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-
-    const [welcome, setWelcome] = useState(false);
-
-    const handlePageLoad = () => {
-        setTimeout(() => {
-            setWelcome(true);
-        }, 2000);
-    };
-
-  useEffect(() => {
-    handlePageLoad();
-  }, []);
 
   return (
     <div className='w-full min-h-screen text-[#213A5A] flex flex-col items-center px-8 py-5'>
@@ -41,7 +28,6 @@ const Login = () => {
                 <button className='text-white bg-[#00ABE4] w-full mt-5 py-2'>LOGIN</button>
             </Link>
         </form>
-        <Welcome welcome={welcome} />
     </div>
   )
 }

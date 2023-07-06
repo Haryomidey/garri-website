@@ -44,8 +44,8 @@ const Navbar = () => {
   return (
     <header className='fixed top-0 mt-[-1px] left-0 h-[60px] mobile:h-[100px] w-full bg-[#00ABE4] flex items-center justify-between z-50 shadow-lg px-4 tablet:px-20'>
         <div className='flex items-center justify-between w-[50%]'>
-            <Link to='/'><h1 className=' mobile:text-xl flex flex-col items-center justify-center px-3 py-1 drop-shadow-md bg-white text-[#213A5A] font-bold '><span>Garri</span><span>Kingdom</span></h1></Link>
-            <nav className='hidden tablet:block'>
+            <Link to='/'><h1 className='text-sm mobile:text-xl flex flex-col items-center justify-center px-3 mobile:py-1 drop-shadow-md bg-white text-[#213A5A] font-bold rounded-lg'><span>Garri</span><span>Kingdom</span></h1></Link>
+            <nav className='hidden laptop:block'>
                 <ul className='flex text-white gap-7 pr-20'>
                     <li>Home</li>
                     <li>About Us</li>
@@ -66,8 +66,8 @@ const Navbar = () => {
                     {state.length}
                 </span>
             </div>
-            <span className={`material-symbols-outlined z-10 tablet:hidden cursor-pointer select-none text-white`} onClick={handleMenu}>{menu ? 'close' : 'menu'}</span>
-            <div className='flex items-center ml-4 text-[white] gap-x-4'>
+            <span className={`material-symbols-outlined z-10 laptop:hidden cursor-pointer select-none text-white`} onClick={handleMenu}>{menu ? 'close' : 'menu'}</span>
+            <div className='hidden laptop:flex items-center ml-4 text-[white] gap-x-4'>
                 <Link to='/login'><button className='px-5 py-2'>Login</button></Link>
                 <Link to='/sign-up'><button className='px-5 py-2 bg-[#213A5A] rounded-full'>Sign up</button></Link>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GarriCard = ({ garri, state, faveState, addItemToCart, removeItemFromCart, addToFavorite, removeFromFavorite, favoritePage}) => {
+const GarriCard = ({ garri, state, faveState, addItemToCart, removeItemFromCart, addToFavorite, removeFromFavorite}) => {
 
     garri.quantity = 1;
 
@@ -34,13 +34,13 @@ const GarriCard = ({ garri, state, faveState, addItemToCart, removeItemFromCart,
         </div>
         {
             faveState.find((e)=> e.id === garri.id) ? (
-                <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer ${favoritePage === 'Yes' ? 'hidden' : 'block'} select-none text-[#dd2626] icon_filled`} onClick={() => {
+                <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer select-none text-[#dd2626] icon_filled`} onClick={() => {
                     removeFromFavorite(garri);
                 }}>favorite</span>
             )
             :
             (
-                <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer ${favoritePage === 'Yes' ? 'hidden' : 'block'} select-none text-[#dd2626]`} onClick={() => {
+                <span className={`material-symbols-outlined absolute top-2 right-2 cursor-pointer select-none text-[#dd2626]`} onClick={() => {
                     addToFavorite(garri);
                 }}>favorite</span>
             )

@@ -46,7 +46,6 @@ const GarriComponent = () => {
                     removeItemFromCart={removeItemFromCart}
                     addToFavorite={addToFavorite}
                     removeFromFavorite={removeFromFavorite}
-                    favoritePage = 'No'
                 />
             ))}
             <ToastContainer />

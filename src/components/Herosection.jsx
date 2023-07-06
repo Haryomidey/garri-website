@@ -23,8 +23,8 @@ const Herosection = () => {
           </div>
         </div>
         <div className='w-full tablet:w-2/3 h-full flex justify-center relative'>
-          <img className='w-full max-w-[50%] h-full hero_garri z-10' src={HeroImage} alt="" />
-          <div className='absolute top-[-40px] rotate-[20deg] right-[100px]'>
+          <img className='w-full laptop:max-w-[50%] h-full hero_garri z-10' src={HeroImage} alt="" />
+          <div className='absolute w-[25%] top-[-40px] rotate-[-20deg] tablet:rotate-[20deg] left-[5px] tablet:left-[70%] laptop:left-[60%]'>
             <img src={HeroImageTwo} className='w-full hero_garri_two' alt="" />
             <div className=''></div>
           </div>

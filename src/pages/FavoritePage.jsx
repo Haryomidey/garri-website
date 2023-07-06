@@ -9,7 +9,7 @@ import Favorite from '../assets/images/favorite-image.png';
 import Footer from '../components/Footer';
 
 const FavoritePage = () => {
-     const { state, dispatch, faveState } = useContext(Context);
+     const { state, dispatch, faveState, faveDispatch } = useContext(Context);
     
     const addItemToCart = (item) => {
         dispatch({ type: 'ADD_ITEM', payload: item });
@@ -27,6 +27,10 @@ const FavoritePage = () => {
         });
     };
 
+    const removeFromFavorite = (item) => {
+        faveDispatch({ type: 'REMOVE_FROM_FAVE', payload: item });
+    };
+
   return (
     <div className='w-full min-h-screen'>
         <Navbar />
@@ -39,7 +43,7 @@ const FavoritePage = () => {
                     removeItemFromCart={removeItemFromCart}
                     state={state}
                     faveState={faveState}
-                    favoritePage = 'Yes'
+                    removeFromFavorite={removeFromFavorite}
                 />
             ))}
         </div>

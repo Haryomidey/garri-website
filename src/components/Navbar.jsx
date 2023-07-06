@@ -9,11 +9,11 @@ const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [cart, setCart] = useState(false);
 
-    const containerRef = useRef(null);
+    const cartRef = useRef();
 
     useEffect(() => {
         const menuOutsideClick = (e) => {
-            if (!containerRef.current.contains(e.target)) {
+            if (!cartRef.current.contains(e.target)) {
                 setCart(false);
             }
             else {
@@ -33,10 +33,6 @@ const Navbar = () => {
         setMenu(!menu);
     }
 
-    const handleCart = () => {
-        setCart(!cart);
-    }
-
     const total = state.reduce((total, item) => {
         return (total + item.price * item.quantity);
     }, 0);
@@ -44,7 +40,7 @@ const Navbar = () => {
   return (
     <header className='fixed top-0 mt-[-1px] left-0 h-[60px] mobile:h-[100px] w-full bg-[#00ABE4] flex items-center justify-between z-50 shadow-lg px-4 tablet:px-20'>
         <div className='flex items-center justify-between laptop:w-[50%]'>
-            <Link to='/'><h1 className='text-sm mobile:text-xl flex flex-col items-center justify-center px-3 mobile:py-1 drop-shadow-md bg-white text-[#213A5A] font-bold rounded-lg'><span>Garri</span><span>Kingdom</span></h1></Link>
+            <Link to='/'><h1 className='text-sm mobile:text-[15px] flex flex-col items-center justify-center px-3 mobile:py-1 drop-shadow-md bg-white text-[#213A5A] font-bold rounded-tr-xl rounded-bl-xl'><span>Garri</span><span>Kingdom</span></h1></Link>
             <nav className='hidden laptop:block'>
                 <ul className='flex text-white gap-7 pr-20'>
                     <li>Home</li>
@@ -60,7 +56,7 @@ const Navbar = () => {
                     {faveState.length}
                 </span>
             </div>
-            <div className='relative' onClick={handleCart}>
+            <div className='relative' onClick={() => setCart(!cart)}>
                 <i className="fa-solid fa-cart-shopping text-[white]"></i>
                 <span className='absolute left-[9px] top-[-7px] text-[11px] font-semibold rounded-full px-1 bg-[#f76262] text-white cursor-pointer'>
                     {state.length}
@@ -82,7 +78,7 @@ const Navbar = () => {
             </ul>
         </div>
         {/* Cart Div */}
-        <div ref={containerRef} className={`fixed top-0 transition-all ease duration-300 ${cart ? 'left-0' : 'left-[-100%]'} h-screen overflow-y-scroll cart_scrollbar w-[70%] max-w-[300px] bg-[#213A5A] text-white pt-20 tablet:pt-28 flex flex-col items-center px-2 pb-5`}>
+        <div ref={cartRef} className={`fixed top-0 transition-all ease duration-300 h-screen overflow-y-scroll cart_scrollbar w-[70%] max-w-[300px] bg-[#213A5A] text-white pt-20 tablet:pt-28 flex flex-col items-center px-2 pb-5`} style={cart ? {left: '0'} : {left: '-100%'}}>
             <p className='px-3 text-center mb-5 text-sm font-light'>Nah the page where you fit see the Garri wey you don select be this</p>
             {
                 state.map((item) => (

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useContext} from 'react';
 import GarriCard from './GarriCard';
 import GarriDb from '../../GarriDb/GarriDb';
 import { Context } from '../../Context';
@@ -35,19 +35,22 @@ const GarriComponent = () => {
 
   return (
     <div className='min-h-screen py-14'>
-        <h1 className='text-center font-semibold text-2xl'>Popular Garri</h1>
+        <h1 className='text-center text-[#213A5A] font-semibold text-2xl border-[#213A5A] border-b-4 w-[200px] mx-auto custom_dot'>Popular Garri</h1>
         <div className='flex flex-wrap items-center justify-center gap-x-6 gap-y-4 px-6 py-4 '>
-            {GarriDb.map((garri) => (
-                <GarriCard
-                    garri={garri}
-                    state={state}
-                    faveState={faveState}
-                    addItemToCart={addItemToCart}
-                    removeItemFromCart={removeItemFromCart}
-                    addToFavorite={addToFavorite}
-                    removeFromFavorite={removeFromFavorite}
-                />
-            ))}
+            {GarriDb.map((garri) => {
+                garri.quantity = 1;
+                return (
+                    <GarriCard
+                        garri={garri}
+                        state={state}
+                        faveState={faveState}
+                        addItemToCart={addItemToCart}
+                        removeItemFromCart={removeItemFromCart}
+                        addToFavorite={addToFavorite}
+                        removeFromFavorite={removeFromFavorite}
+                    />
+                )
+            })}
             <ToastContainer />
         </div>
     </div>

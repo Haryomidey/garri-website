@@ -16,7 +16,7 @@ const ContextProvider = ({ children }) => {
             case 'INCREASE_ITEM':
                 const tempstate2 = state.map(item => {
                     if (item.id === action.payload.id) {
-                        return { ...item, quanity: item.quantity + 1 };
+                        return { ...item, quantity: item.quantity + 1 };
                     }
                     else {
                         return item;
@@ -26,7 +26,7 @@ const ContextProvider = ({ children }) => {
             case 'DECREASE_ITEM':
                 const tempstate3 = state.map(item => {
                     if (item.id === action.payload.id) {
-                        return { ...item, quanity: item.quantity - 1 };
+                        return { ...item, quantity: item.quantity - 1 };
                     }
                     else {
                         return item;

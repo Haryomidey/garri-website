@@ -31,7 +31,7 @@ const Homepage = () => {
       <HappyClient />
       <PopularQuote />
       <Footer />
-      <Welcome welcome={welcome} />
+      {/* <Welcome welcome={welcome} /> */}
     </div>
   )
 }

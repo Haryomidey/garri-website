@@ -2,8 +2,6 @@ import React from 'react';
 
 const GarriCard = ({ garri, state, faveState, addItemToCart, removeItemFromCart, addToFavorite, removeFromFavorite}) => {
 
-    garri.quantity = 1;
-
   return (
     <div className='bg-white w-full mobile:w-[80%] ipad:w-[40%] tablet:w-[30%] h-[350px] laptop:w-[25%] desktop:w-[20%] flex flex-col custom_card_shadow relative rounded-md overflow-hidden' key={garri.id}>
         <div className='w-full h-[200px] relative'>

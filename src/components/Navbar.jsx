@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
         {/* Cart Div */}
         <div ref={cartRef} className={`fixed top-0 transition-all ease duration-300 h-screen overflow-y-scroll cart_scrollbar w-[70%] max-w-[300px] bg-[#213A5A] text-white pt-20 tablet:pt-28 flex flex-col items-center px-2 pb-5`} style={cart ? {left: '0'} : {left: '-100%'}}>
-            <p className='px-3 text-center mb-5 text-sm font-light'>Nah the page where you fit see the Garri wey you don select be this</p>
+            <p className='px-3 text-center mb-5 text-sm font-light tablet:text-xl'>Items selected in the cart</p>
             {
                 state.map((item) => (
                     <div className='w-full px-5 py-6 cart_border relative'>

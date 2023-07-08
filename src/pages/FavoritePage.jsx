@@ -34,7 +34,7 @@ const FavoritePage = () => {
   return (
     <div className='w-full min-h-screen'>
         <Navbar />
-        <h1 className='pt-36 text-center text-[#213A5A] font-semibold text-2xl border-[#213A5A] border-b-4 w-[200px] mx-auto custom_dot'>Favorite Garri</h1>
+        <h1 className='pt-36 text-center text-[#213A5A] font-semibold text-2xl border-[#213A5A] border-b-4 w-[200px] mx-auto custom_dot mb-4 pb-2'>Favorite Garri</h1>
         <div className='flex flex-wrap items-center justify-center gap-x-6 gap-y-4 px-6 py-4 pb-20'>
             {faveState.map((garri) => (
                 <GarriCard

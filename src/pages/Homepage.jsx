@@ -6,10 +6,16 @@ import HappyClient from '../components/HappyClient';
 import PopularQuote from '../components/PopularQuote';
 import Footer from '../components/Footer';
 
+// import supabase from './config/supabaseClient.js';
+
+// import supabase from '../../config/supabaseClient';
+
 
 import Welcome from '../components/Welcome';
 
 const Homepage = () => {
+
+  // console.log(supabase);
 
     const [welcome, setWelcome] = useState(false);
 
